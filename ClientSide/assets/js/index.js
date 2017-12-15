@@ -301,6 +301,7 @@ function countdown() {
                      continue;
                  } else if (spans[i].classList.contains("bg") === false && spans[i-1] === undefined || spans[i-1].classList.contains("bg") !== false ) { // if it dont have class, if it is not first letter or if the letter before it dont have class (this is done to avoid marking the letters who are not in order for being checked, for example if you have two "A"s so to avoid marking both of them if the first one is at the index 0 and second at index 5 for example)
                      spans[i].classList.add("bg");
+                     $("#userDisplay").text(typed);
                      break;
                  }
              }
