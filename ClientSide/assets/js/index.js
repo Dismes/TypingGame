@@ -7,8 +7,6 @@ var points = 0;
 var spans;
 var typed;
 var seconds = 60;
-var spark = new Audio("http://k003.kiwi6.com/hotlink/qdpr7bioht/spark.mp3");
-
 console.log("hello");
 
 function countdown() {
