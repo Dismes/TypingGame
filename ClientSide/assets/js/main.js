@@ -1,7 +1,9 @@
 var points = 0;
 var timerDiv = $('#CurrentTime');
-var seconds = 10;
+const seconds = 10;
 var button = $("#startButton");
+var scoreDiv = $("#score");
+var words = $("ExampleInput");
 
 
 $(document).ready(function () {
@@ -15,24 +17,22 @@ $(document).ready(function () {
 
 
 function countdown() {
-    seconds = 10;
+    time = seconds;
+    timerDiv.text(time);
     points = 0;
     button.prop("disabled", true);
     var timer = setInterval(function () {
-        //button.disabled = true;
-       
-        timerDiv.text(seconds);
-        seconds--;
-        if (seconds === 0) {
+        
+        time--;
+        timerDiv.text(time);
+        if (time === 0) {
+            timerDiv.text(time);
             alert("Game over! Your score is " + points);
-            /*scoreDiv.innerHTML = "0";
-            words.innerHTML = "";
-            button.disabled = false;
+            words.text("");
+            button.prop("disabled", false);
             clearInterval(timer);
-            seconds = 60;
-            timerDiv.innerHTML = "60";
-            button.disabled = false;
-            */
+            time = seconds
+            timerDiv.text(time);
         }
     }, 1000);
 }
