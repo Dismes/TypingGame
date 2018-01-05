@@ -71,7 +71,7 @@ function typing(e){
             correctTyped += typed
             document.getElementById('UserInput').placeholder=correctTyped;
             if(numberInWord == currentWord.length){
-                point++;
+                points++;
             }
         }
 
