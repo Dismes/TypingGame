@@ -16,14 +16,15 @@ $(document).ready(function () {
         random();
 
     });
-    
+
     document.addEventListener("keydown", typing, false);
-    
-    
+
+
 });
 
 
 function random() {
+    $("#ExampleInput").empty();
     console.log("random should be running");
     words.innerHTML = "";
     var random = Math.floor(Math.random() * (1943 - 0 + 1)) + 0;
@@ -31,11 +32,12 @@ function random() {
     currentWord = wordArray;
     console.log(wordArray);
     console.log(random);
-    $("#ExampleInput").append("<p>" + wordArray + "</p>");
+    $("#ExampleInput").append("<h2>" + wordArray + "</h2>");
 
 }
 
 function countdown() {
+    document.getElementById('UserInput').placeholder = "";
     console.log("this is should be the last button pressed " + typed)
     time = seconds;
     timerDiv.text(time);
@@ -59,19 +61,25 @@ function countdown() {
 
 var numberInWord = 0;
 var correctTyped = "";
-function typing(e){
+
+function typing(e) {
     console.log(e.which);
     typed = String.fromCharCode(e.which);
     console.log(typed);
 
-    if(currentWord != null){
-        if(currentWord[numberInWord] == typed){
+    if (currentWord != null) {
+        if (currentWord[numberInWord] == typed) {
             numberInWord++;
             console.log("That was correct");
             correctTyped += typed
-            document.getElementById('UserInput').placeholder=correctTyped;
-            if(numberInWord == currentWord.length){
+            document.getElementById('UserInput').placeholder = correctTyped;
+            if (numberInWord == currentWord.length) {
+                numberInWord = 0;
                 points++;
+                currentWord = null;
+                correctTyped = "";
+                random();
+
             }
         }
 
