@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Dismes/TypingGame/issues"
   },
-  "homepage": "https://github.com/Dismes/TypingGame#readme"
+  "homepage": "https://github.com/Dismes/TypingGame#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "sequelize": "^4.28.6"
+  }
 }
