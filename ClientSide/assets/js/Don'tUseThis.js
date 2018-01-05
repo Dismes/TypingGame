@@ -29,16 +29,11 @@ function countdown() {
 }
 
 function random() {
+    console.log("random should be running");
     words.innerHTML = "";
     var random = Math.floor(Math.random() * (1943 - 0 + 1)) + 0;
     var wordArray = list[random].split("");
-    for (var i = 0; i < wordArray.length; i++) { //building the words with spans around the letters
-        var span = document.createElement("span");
-        span.classList.add("span");
-        span.innerHTML = wordArray[i];
-        words.appendChild(span);
-    }
-    spans = document.querySelectorAll(".span");
+    console.log(wordArray);
 }
 
 
