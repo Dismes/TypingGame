@@ -4,6 +4,7 @@ const seconds = 10;
 var button = $("#startButton");
 var scoreDiv = $("#score");
 var words = $("ExampleInput");
+var currentWord;
 var typed;
 
 
@@ -27,9 +28,10 @@ function random() {
     words.innerHTML = "";
     var random = Math.floor(Math.random() * (1943 - 0 + 1)) + 0;
     var wordArray = list[random];
+    currentWord = wordArray;
     console.log(wordArray);
     console.log(random);
-    $("#ExampleInput").append("<p>dkjsalfd</p>");
+    $("#ExampleInput").append("<p>" + wordArray + "</p>");
 
 }
 
@@ -50,17 +52,31 @@ function countdown() {
             clearInterval(timer);
             time = seconds
             timerDiv.text(time);
+            currentWord = null;
         }
     }, 1000);
 }
 
-
-
+var numberInWord = 0;
+var correctTyped = "";
 function typing(e){
     console.log(e.which);
     typed = String.fromCharCode(e.which);
     console.log(typed);
-    return typed;
+
+    if(currentWord != null){
+        if(currentWord[numberInWord] == typed){
+            numberInWord++;
+            console.log("That was correct");
+            correctTyped += typed
+            document.getElementById('UserInput').placeholder=correctTyped;
+            if(numberInWord == currentWord.length){
+                point++;
+            }
+        }
+
+    }
+
 }
 
 
