@@ -1,6 +1,6 @@
 var points = 0;
 var timerDiv = $('#CurrentTime');
-const seconds = 15;
+const seconds = 1;
 var button = $("#startButton");
 var scoreDiv = $("#score");
 var words = $("ExampleInput");
@@ -11,6 +11,7 @@ var currentUser;
 
 $(document).ready(function () {
     console.log("this is a test ");
+
 
     button.click(function (e) {
         document.getElementById("Name_Input").disabled = true;
@@ -34,6 +35,8 @@ function random() {
     currentWord = wordArray;
     console.log(wordArray);
     console.log(random);
+    whatToSay(wordArray);
+
     $("#ExampleInput").append("<h2>" + wordArray + "</h2>");
 
 }
@@ -50,22 +53,36 @@ function countdown() {
         time--;
         timerDiv.text(time);
         if (time === 0) {
+
             currentUser = document.getElementById('Name_Input').value
+            whatToSay("Game over! Congrants " + currentUser + " Your score is " + points);
             timerDiv.text(time);
             document.getElementById("Name_Input").disabled = false;
-            alert("Game over! Congrants " + currentUser + " Your score is " + points);
+
+
+
             words.text("");
             button.prop("disabled", false);
             clearInterval(timer);
             time = seconds
             timerDiv.text(time);
             currentWord = null;
+            setTimeout(() => {
+                alert("Game over! Congrants " + currentUser + " Your score is " + points);
+            }, 10);
+
         }
     }, 1000);
 }
 
 var numberInWord = 0;
 var correctTyped = "";
+
+function whatToSay(x) {
+
+    responsiveVoice.speak(x, "UK English Male", {
+    });
+}
 
 function typing(e) {
     console.log(e.which);
@@ -75,12 +92,14 @@ function typing(e) {
     if (currentWord != null) {
         if (currentWord[numberInWord] == typed) {
             numberInWord++;
+
             console.log("That was correct");
             correctTyped += typed
             document.getElementById('UserInput').placeholder = correctTyped;
             if (numberInWord == currentWord.length) {
                 numberInWord = 0;
                 points++;
+
                 currentWord = null;
                 correctTyped = "";
                 random();
