@@ -1,17 +1,19 @@
 var points = 0;
 var timerDiv = $('#CurrentTime');
-const seconds = 10;
+const seconds = 15;
 var button = $("#startButton");
 var scoreDiv = $("#score");
 var words = $("ExampleInput");
 var currentWord;
 var typed;
+var currentUser;
 
 
 $(document).ready(function () {
     console.log("this is a test ");
 
     button.click(function (e) {
+        document.getElementById("Name_Input").disabled = true;
         countdown();
         random();
 
@@ -37,6 +39,7 @@ function random() {
 }
 
 function countdown() {
+
     document.getElementById('UserInput').placeholder = "";
     console.log("this is should be the last button pressed " + typed)
     time = seconds;
@@ -47,8 +50,10 @@ function countdown() {
         time--;
         timerDiv.text(time);
         if (time === 0) {
+            currentUser = document.getElementById('Name_Input').value
             timerDiv.text(time);
-            alert("Game over! Your score is " + points);
+            document.getElementById("Name_Input").disabled = false;
+            alert("Game over! Congrants " + currentUser + " Your score is " + points);
             words.text("");
             button.prop("disabled", false);
             clearInterval(timer);
