@@ -1,6 +1,6 @@
 var points = 0;
 var timerDiv = $('#CurrentTime');
-const seconds = 30;
+const seconds = 5;
 var button = $("#startButton");
 var scoreDiv = $("#score");
 var words = $("ExampleInput");
@@ -33,11 +33,10 @@ function random() {
     var random = Math.floor(Math.random() * (1943 - 0 + 1)) + 0;
     var wordArray = list[random];
     currentWord = wordArray;
-    console.log(wordArray);
-    console.log(random);
     whatToSay(wordArray);
 
     $("#ExampleInput").append("<h2>" + wordArray + "</h2>");
+    
 
 }
 
@@ -64,6 +63,7 @@ function countdown() {
             time = seconds
             timerDiv.text(time);
             currentWord = null;
+            scoreDiv.text("0");
             setTimeout(() => {
                 alert("Game over! Congrants " + currentUser + " Your score is " + points);
             }, 10);
@@ -99,6 +99,8 @@ function typing(e) {
 
                 currentWord = null;
                 correctTyped = "";
+         
+                scoreDiv.text(points);
                 random();
 
             }

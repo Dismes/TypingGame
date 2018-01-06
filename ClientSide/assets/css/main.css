@@ -6,7 +6,7 @@
 }
 
 body {
-	background-color: #353535;
+	background-color: #FF7373;
 	font-family: 'Raleway', sans-serif;
 }
 
@@ -14,12 +14,25 @@ body {
     font-size: 50px;
 }
 
+#CopyText{
+    color: red;
+}
+
 #CurrentTime{
     font-size: 50px;
 }
 
+#Name_Input{
+    text-align: center;
+}
+
 #ExampleInput{
     background-color: #04AF71;
+    text-align: center;
+
+}
+#UserInput{
+    text-align: center;
 }
 
 .wrapper {
@@ -28,8 +41,9 @@ body {
 	width: 100%;
 	text-align: center;
 	padding: 2%;
-	background-color: #424242;
 	height: 500px;
+    border-style: solid;
+    border-width: 5px;
 }
 
 h1 {
