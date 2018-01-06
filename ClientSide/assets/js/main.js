@@ -1,6 +1,6 @@
 var points = 0;
 var timerDiv = $('#CurrentTime');
-const seconds = 1;
+const seconds = 30;
 var button = $("#startButton");
 var scoreDiv = $("#score");
 var words = $("ExampleInput");
@@ -58,9 +58,6 @@ function countdown() {
             whatToSay("Game over! Congrants " + currentUser + " Your score is " + points);
             timerDiv.text(time);
             document.getElementById("Name_Input").disabled = false;
-
-
-
             words.text("");
             button.prop("disabled", false);
             clearInterval(timer);

@@ -18,6 +18,10 @@ body {
     font-size: 50px;
 }
 
+#ExampleInput{
+    background-color: #04AF71;
+}
+
 .wrapper {
 	max-width: 600px;
 	margin: auto;
