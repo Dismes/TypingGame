@@ -10,8 +10,6 @@ var currentUser;
 
 
 $(document).ready(function () {
-    console.log("this is a test ");
-
 
     button.click(function (e) {
         document.getElementById("Name_Input").disabled = true;
@@ -43,7 +41,6 @@ function random() {
 function countdown() {
 
     document.getElementById('UserInput').placeholder = "";
-    console.log("this is should be the last button pressed " + typed)
     time = seconds;
     timerDiv.text(time);
     points = 0;
