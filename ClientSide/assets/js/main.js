@@ -1,6 +1,6 @@
 var points = 0;
 var timerDiv = $('#CurrentTime');
-const seconds = 5;
+const seconds = 30;
 var button = $("#startButton");
 var scoreDiv = $("#score");
 var words = $("ExampleInput");
