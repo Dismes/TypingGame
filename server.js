@@ -1,4 +1,5 @@
 var express = require("express");
+var path = require('path');
 var bodyParser = require("body-parser");
 
 // bring in the models
@@ -13,7 +14,8 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
- 
+app.use(express.static(path.join(__dirname, 'ClientSide/public')));
+
 app.get("/", function(request,response){
 	response.sendFile(__dirname + '/index.html');
 })
