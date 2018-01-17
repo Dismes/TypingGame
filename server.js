@@ -21,7 +21,7 @@ app.get("/", function(request,response){
 })
 
 // listen on port 8080
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 db.sequelize.sync().then(function() { 
   app.listen(port, function(){
   	console.log("Listening on port", port);
